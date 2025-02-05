@@ -204,6 +204,7 @@ footer {
 
 
 /* Control Department Tools Section */
+/* Control Department Tools Section */
 #tools {
     text-align: center;
     padding: 40px 20px;
@@ -216,19 +217,25 @@ footer {
     color: #590303;
 }
 
+/* Grid layout for tools */
 .tools-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Dynamic grid */
     gap: 20px;
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
 }
 
+/* Tool Card */
 .tool {
-    width: 150px;
+    width: 100%;
+    max-width: 150px;
     text-align: center;
-    padding: 10px;
-    background: #f5f5f5;
-    border-radius: 8px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
@@ -240,24 +247,47 @@ footer {
 }
 
 .tool p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #333;
 }
 
+/* Hover Effect */
 .tool:hover {
     transform: scale(1.1);
 }
 
-/* Responsive Tools Section */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .tools-container {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller columns */
+        gap: 15px;
+    }
+    
+    .tool {
+        max-width: 120px;
+    }
+
+    #tools h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-container {
+        grid-template-columns: 1fr; /* Single column layout */
     }
 
     .tool {
-        width: 90%;
-        max-width: 200px;
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .tool img {
+        width: 60px;
+    }
+
+    .tool p {
+        font-size: 12px;
     }
 }
