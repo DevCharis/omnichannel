@@ -28,9 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    burger.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
-    });
+    
     // OTP Verification Event Listener
     if (verifyOtpBtn) {
         verifyOtpBtn.addEventListener("click", function () {
