@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const errorMessage = document.getElementById("error-message");
     const otpInput = document.getElementById("otp");
     const verifyOtpBtn = document.getElementById("verifyOTP"); // Fixed ID ✅
+    const burger = document.querySelector(".burger");
+    const navLinks = document.querySelector(".nav-links");
 
     let generatedOTP = ""; // Store OTP globally
 
@@ -26,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-
+    burger.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
     // OTP Verification Event Listener
     if (verifyOtpBtn) {
         verifyOtpBtn.addEventListener("click", function () {

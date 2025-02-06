@@ -13,6 +13,8 @@ html,
 body {
   overflow-x: hidden;
   width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 /* Basic Styling */
@@ -20,6 +22,11 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+    flex: 1;
 }
 
 header {
@@ -108,6 +115,7 @@ header {
   width: 30px;
   height: 3px;
   background-color: white;
+  border-radius: 50px;
   margin: 3px 0;
 }
 
@@ -180,7 +188,7 @@ footer {
   background-color: #590303;
   color: #fff;
   padding: 20px;
-}
+position: relative;}
 
 /* Link Styles */
 .links {
@@ -211,7 +219,6 @@ footer {
 }
 
 /* Control Department Tools Section */
-/* Control Department Tools Section */
 #tools {
   text-align: center;
   padding: 40px 20px;
@@ -240,7 +247,7 @@ footer {
 
 /* Tool Card */
 .tool {
-  width: 100%;
+  width: 100px;
   max-width: 150px;
   text-align: center;
   padding: 15px;
@@ -252,8 +259,9 @@ footer {
 
 .tool img {
   width: 80px;
-  height: auto;
+  height: 80px;
   margin-bottom: 10px;
+  object-fit: contain;
 }
 
 .tool p {
@@ -279,6 +287,7 @@ footer {
 
   .tool {
     max-width: 120px;
+    max-height: 120PX;
   }
 
   #tools h2 {
@@ -298,6 +307,7 @@ footer {
 
   .tool img {
     width: 60px;
+    height: 60px;
   }
 
   .tool p {

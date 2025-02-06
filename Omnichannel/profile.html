@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Update</title>
+    <link rel="stylesheet" href="./Assets/css/profile.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Profile Details</h1>
+      <button class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </button>
+    </header>
+
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="profile-container">
+        <div class="profile-picture">
+            <label for="profile-pic">
+              <img id="preview-pic" src="./Assets/image/uba.png" alt="Profile Picture" class="profile-img">
+              <input type="file" id="profile-pic" name="profile-pic" accept="image/*" class="file-input" onchange="previewImage(event)">
+            <div> <span>Change Profile Picture</span>
+            </label>
+          </div>
+  </div>
+        <!-- Personal Details Section (Text instead of input fields) -->
+        <div class="personal-details">
+          <label>Name</label>
+          <p>Chizi-Leka Joshua Favour</p>
+          <!-- Example Text -->
+
+          <label>Email</label>
+          <p>admin@example.com</p>
+          <!-- Example Text -->
+
+          <label>Phone Number</label>
+          <p>+1234567890</p>
+          <!-- Example Text -->
+
+          <label>Department</label>
+          <p>Assurance/Audit</p>
+          <!-- Example Text -->
+
+          <label>Job Role</label>
+          <p>Regional Control Officer</p>
+          <!-- Example Text -->
+        </div>
+        <!-- Password Section (Text instead of input fields) -->
+        <div class="password-section">
+          <label>Current Location</label>
+          <p>0401</p>
+          <!-- Example Text -->
+
+          <label>Current Supervisor</label>
+          <p>Aaron Kofi</p>
+          <!-- Example Text -->
+
+          <label>Current Address</label>
+          <p>123, ABC Street, DEF, XYZ State</p>
+          <!-- Example Text -->
+        </div>
+
+        <!-- No Update Button Here, Only for Viewing -->
+      </section>
+    </main>
+
+    <footer>&copy; 2024 Omnichannel Hub. All Rights Reserved.</footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+        
+        burger.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>
