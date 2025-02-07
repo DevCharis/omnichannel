@@ -152,7 +152,23 @@ body, h1, h2, h3, p, ul, li {
   .nav-links a:hover {
     color: #7f6060;
   }
-  
+  /* Logo and Title Section */
+.logo-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 10px;
+}
+
+.logo-u,
+.logo-o {
+  max-width: 90px;
+  height: auto;
+  max-height: 120px;
+  padding: 0 15px;
+}
   /* Mobile View */
   @media (max-width: 768px) {
     .nav-links {
