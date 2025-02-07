@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./Assets/css/styles.css" />
     <script src="./Assets/js/script.js" defer></script>
+    <script
+      src="https://statics.teams.cdn.office.net/sdk/v1.10.0/js/MicrosoftTeams.min.js"
+      defer
+    ></script>
     <title>Omnichannel Hub</title>
   </head>
   <body>
@@ -35,6 +39,23 @@
       </ul>
     </nav>
     <main>
+      <section>
+        <iframe
+          src="https://teams.microsoft.com"
+          width="100%"
+          height="100%"
+          frameborder="0"
+        ></iframe>
+        <div></div>
+          <a
+            href="https://teams.microsoft.com/l/meetup-join/your-meeting-id"
+            target="_blank"
+            class="teams-button"
+          >
+            Join Microsoft Teams Meeting
+          </a>
+        </div>
+      </section>
       <section id="tools">
         <h2>Control Department Tools</h2>
         <div class="tools-container">
@@ -46,44 +67,44 @@
           </div>
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
-            <img src="./Assets/image/HIKVision.png" alt="HIKVision" />
-            <p>HIKVision</p>
+              <img src="./Assets/image/HIKVision.png" alt="HIKVision" />
+              <p>HIKVision</p>
             </a>
           </div>
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
-            <img src="./Assets/image/uba.png" alt="iSuite" />
-            <p>iSuite</p>
+              <img src="./Assets/image/uba.png" alt="iSuite" />
+              <p>iSuite</p>
             </a>
           </div>
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
-            <img src="./Assets/image/Finacle.png" alt="Finacle" />
-            <p>Finacle</p>
+              <img src="./Assets/image/Finacle.png" alt="Finacle" />
+              <p>Finacle</p>
             </a>
           </div>
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
-            <img src="./Assets/image/omnichannel.png" alt="ICEM" />
-            <p>ICEM</p>
+              <img src="./Assets/image/omnichannel.png" alt="ICEM" />
+              <p>ICEM</p>
             </a>
           </div>
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
-            <img src="./Assets/image/GRP.png" alt="GRP" />
-            <p>GRP</p>
+              <img src="./Assets/image/GRP.png" alt="GRP" />
+              <p>GRP</p>
             </a>
           </div>
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
-            <img src="./Assets/image/CRP.png" alt="CRP" />
-            <p>CRP</p>
+              <img src="./Assets/image/CRP.png" alt="CRP" />
+              <p>CRP</p>
             </a>
           </div>
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
-            <img src="./Assets/image/uba.png" alt="BVN Validation Portal" />
-            <p>BVN VP</p>
+              <img src="./Assets/image/uba.png" alt="BVN Validation Portal" />
+              <p>BVN VP</p>
             </a>
           </div>
         </div>
@@ -96,6 +117,13 @@
 
         burger.addEventListener("click", function () {
           navLinks.classList.toggle("active");
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        microsoftTeams.initialize();
+
+        microsoftTeams.getContext((context) => {
+          console.log("Running inside Teams:", context);
         });
       });
     </script>

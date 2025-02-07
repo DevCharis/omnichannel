@@ -463,4 +463,15 @@ position: relative;}
       width: 100%;
     }
   }
+  .teams-button {
+    background-color: #6264A7;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .teams-button:hover {
+    background-color: #464775;
+  }
   
