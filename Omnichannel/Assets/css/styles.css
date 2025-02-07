@@ -474,4 +474,36 @@ position: relative;}
   .teams-button:hover {
     background-color: #464775;
   }
-  
+  #calendar {
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fc-header-toolbar {
+    background: #590303;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.fc-button {
+    background: #590303 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.fc-button:hover {
+    background: #7f6060 !important;
+}
+
+.fc-daygrid-day {
+    border: 1px solid #ddd;
+}
+
+.fc-day-today {
+    background: #ffebee !important;
+}
