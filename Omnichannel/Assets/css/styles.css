@@ -58,7 +58,8 @@ header {
 /* Responsive header adjustments */
 @media (max-width: 768px) {
   .logo-list {
-    flex-direction: column;
+   
+    flex-direction:column;
   }
 
   .logo-u,
@@ -223,6 +224,9 @@ position: relative;}
   text-align: center;
   padding: 40px 20px;
   background-color: #fff;
+}
+#tools a {
+  text-decoration: none;
 }
 
 #tools h2 {
