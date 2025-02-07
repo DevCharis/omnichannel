@@ -34,10 +34,12 @@
 
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html"><button>Home</button></a></li>
         <!-- <li><a href="#tools">Tools</a></li> -->
-        <li><a href="profile.html">Profile</a></li>
+        <li><a href="profile.html"><button>Profile</button></a></li>
         <!-- <li><a href="#contact">Contact</a></li> -->
+        <li><a><button id="logout-btn">Logout</button></a></li>
+
       </ul>
     </nav>
     <main>
@@ -115,6 +117,16 @@
         <div id="calendar"></div>
       </section>
     </main>
+    <div id="logout-popup" class="popup-overlay">
+      <div class="popup-content">
+          <h3>Are you sure you want to logout?</h3>
+          <div class="popup-buttons">
+              <button id="confirm-logout">Yes</button>
+              <button id="cancel-logout">No</button>
+          </div>
+      </div>
+  </div>
+  
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const burger = document.querySelector(".burger");
@@ -160,6 +172,29 @@
     });
 
     calendar.render();
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const logoutBtn = document.getElementById("logout-btn");
+    const logoutPopup = document.getElementById("logout-popup");
+    const confirmLogout = document.getElementById("confirm-logout");
+    const cancelLogout = document.getElementById("cancel-logout");
+
+    // Show popup when logout button is clicked
+    logoutBtn.addEventListener("click", function () {
+        logoutPopup.style.display = "flex";
+    });
+
+    // Confirm logout
+    confirmLogout.addEventListener("click", function () {
+        // Simulate logout (replace with actual logout logic)
+        alert("Logging out...");
+        window.location.href = "login.html"; // Redirect to login page
+    });
+
+    // Cancel logout
+    cancelLogout.addEventListener("click", function () {
+        logoutPopup.style.display = "none";
+    });
 });
 
     </script>
