@@ -406,6 +406,7 @@ border-radius: 10px;
 
 .toggle-password {
   position: absolute;
+  color: #590303;
   right: 10px;
   cursor: pointer;
   background: none;
@@ -677,4 +678,19 @@ border-radius: 10px;
 }
 .popup-buttons button:hover {
   background: #5a3838;
+}
+
+.capslock-tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  white-space: nowrap;
+  margin-top: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }

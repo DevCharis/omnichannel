@@ -211,7 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Confirm logout
     confirmLogout.addEventListener("click", function () {
         // Simulate logout (replace with actual logout logic)
-        alert("Logging out...");
         window.location.href = "login.html"; // Redirect to login page
     });
 
@@ -260,6 +259,13 @@ document.addEventListener("DOMContentLoaded", function () {
     cancelToolBtn.addEventListener("click", function () {
         addToolPopup.style.display = "none";
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (!sessionStorage.getItem("authenticated")) {
+        alert("Unauthorized access! Redirecting to login page.");
+        window.location.href = "login.html"; // Redirect to login page
+    }
 });
 
     </script>

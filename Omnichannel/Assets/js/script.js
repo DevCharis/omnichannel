@@ -3,12 +3,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const otpSection = document.getElementById("otp-section");
     const errorMessage = document.getElementById("error-message");
     const otpInput = document.getElementById("otp");
-    const verifyOtpBtn = document.getElementById("verifyOTP"); // Fixed ID ✅
-    const burger = document.querySelector(".burger");
-    const navLinks = document.querySelector(".nav-links");
+    const verifyOtpBtn = document.getElementById("verifyOTP");
+    const logoutBtn = document.getElementById("logout-btn");
 
-    let generatedOTP = ""; // Store OTP globally
+    let generatedOTP = sessionStorage.getItem("otp") || ""; // Retrieve OTP from session storage
 
+    // Prevent direct access to index.html
+    if (window.location.pathname.includes("index.html")) {
+        if (!sessionStorage.getItem("authenticated")) {
+            alert("Unauthorized access! Redirecting to login page.");
+            window.location.href = "login.html";
+        }
+    }
+
+    // Handle login form submission
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -19,27 +27,28 @@ document.addEventListener("DOMContentLoaded", function () {
             if (username === "admin" && password === "password123") {
                 generatedOTP = generateOTP();
                 alert(`Your OTP is: ${generatedOTP}`); // Simulating OTP sent to email
+                sessionStorage.setItem("otp", generatedOTP); // Store OTP in session storage
 
                 // Show OTP input section
                 otpSection.style.display = "block";
-                loginForm.style.display = "none"; // Hide login form
+                loginForm.style.display = "none";
             } else {
                 errorMessage.textContent = "Invalid username or password.";
             }
         });
     }
-    
-    // OTP Verification Event Listener
+
+    // Handle OTP verification
     if (verifyOtpBtn) {
         verifyOtpBtn.addEventListener("click", function () {
             const userOTP = otpInput.value.trim();
-            
-            console.log("Generated OTP:", generatedOTP);
-            console.log("User-entered OTP:", userOTP);
+            const storedOTP = sessionStorage.getItem("otp"); // Retrieve OTP from session storage
 
-            if (userOTP === generatedOTP) {
-                alert("OTP verified! Redirecting..."); // Debugging alert
-                window.location.href = "index.html"; // Redirect on success
+            if (userOTP === storedOTP) {
+                sessionStorage.setItem("authenticated", "true"); // Mark user as logged in
+                sessionStorage.removeItem("otp"); // Clear OTP after successful login
+                alert("OTP verified! Redirecting...");
+                window.location.href = "index.html"; // Redirect to dashboard
             } else {
                 errorMessage.textContent = "Invalid OTP. Try again.";
             }
@@ -47,9 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Generate a 6-digit OTP
+// Generate a 6-digit OTP and store it in session storage
 function generateOTP() {
-    return Math.floor(100000 + Math.random() * 900000).toString();
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    sessionStorage.setItem("otp", otp);
+    return otp;
 }
 
 // Toggle password visibility
