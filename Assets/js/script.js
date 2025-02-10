@@ -6,21 +6,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// // Ensure login sets session storage
-// if (document.getElementById("login-form")) {
-//     document.getElementById("login-form").addEventListener("submit", function (event) {
-//         event.preventDefault();
-//         const username = document.getElementById("username").value.trim();
-//         const password = document.getElementById("password").value.trim();
+// Ensure login sets session storage
+if (document.getElementById("login-form")) {
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-//         if (username === "admin" && password === "password123") {
-//             sessionStorage.setItem("isLoggedIn", "true");
-//             window.location.href = "index.html"; // Redirect to dashboard
-//         } else {
-//             document.getElementById("error-message").textContent = "Invalid username or password.";
-//         }
-//     });
-// }
+        if (username === "admin" && password === "password123") {
+            sessionStorage.setItem("isLoggedIn", "true");
+            window.location.href = "index.html"; // Redirect to dashboard
+        } else {
+            document.getElementById("error-message").textContent = "Invalid username or password.";
+        }
+    });
+}
 
 // // Logout should clear session
 // if (document.getElementById("logout-btn")) {
