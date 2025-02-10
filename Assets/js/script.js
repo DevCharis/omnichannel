@@ -1,37 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    if (!sessionStorage.getItem("isLoggedIn")) {
-        if (!window.location.href.includes("login.html")) {
-            window.location.href = "login.html"; // Redirect to login
-        }
-    }
-});
-
-// Ensure login sets session storage
-if (document.getElementById("login-form")) {
-    document.getElementById("login-form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
-
-        if (username === "admin" && password === "password123") {
-            sessionStorage.setItem("isLoggedIn", "true");
-            window.location.href = "index.html"; // Redirect to dashboard
-        } else {
-            document.getElementById("error-message").textContent = "Invalid username or password.";
-        }
-    });
-}
-
-// Logout should clear session
-if (document.getElementById("logout-btn")) {
-    document.getElementById("logout-btn").addEventListener("click", function () {
-        sessionStorage.clear();
-        window.location.href = "login.html";
-    });
-}
-
-
-document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");
     const otpSection = document.getElementById("otp-section");
     const errorMessage = document.getElementById("error-message");
