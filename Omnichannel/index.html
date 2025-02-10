@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./Assets/css/styles.css" />
     <script src="./Assets/js/script.js" defer></script>
     <script
@@ -34,14 +35,12 @@
 
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="index.html"><button>Home</button></a></li>
-        <!-- <li><a href="#tools">Tools</a></li> -->
-        <li><a href="profile.html"><button>Profile</button></a></li>
-        <!-- <li><a href="#contact">Contact</a></li> -->
-        <li><a><button id="logout-btn">Logout</button></a></li>
-
+        <li><a href="index.html"><button><i class="fas fa-home"></i> Home</button></a></li>
+        <li><a href="profile.html"><button><i class="fas fa-user"></i> Profile</button></a></li>
+        <li><a><button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button></a></li>
       </ul>
-    </nav>
+   </nav>
+   
     <main>
       <section>
         <iframe
@@ -108,7 +107,20 @@
           <div class="tool">
             <a href="http://bvnapp.ubagroup.com/" target="_blank">
               <img src="./Assets/image/uba.png" alt="BVN Validation Portal" />
+              <p>Mail</p>
+            </a>
+          </div>
+          
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/uba.png" alt="BVN Validation Portal" />
               <p>BVN VP</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <button class="fas fa-square-plus" alt="BVN Validation Portal" ></button>
+              <p>Add More +</p>
             </a>
           </div>
         </div>
@@ -126,6 +138,18 @@
           </div>
       </div>
   </div>
+  <div id="add-tool-popup" class="popup-overlay">
+    <div class="popup-content">
+        <h3>Add a New Tool</h3>
+        <input type="text" id="tool-name" placeholder="Tool Name" required />
+        <input type="url" id="tool-link" placeholder="Tool Link" required />
+        <div class="popup-buttons">
+            <button id="save-tool">Save</button>
+            <button id="cancel-tool">Cancel</button>
+        </div>
+    </div>
+</div>
+
   
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -194,6 +218,47 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cancel logout
     cancelLogout.addEventListener("click", function () {
         logoutPopup.style.display = "none";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const addMoreBtn = document.querySelector(".tool a button");
+    const addToolPopup = document.getElementById("add-tool-popup");
+    const saveToolBtn = document.getElementById("save-tool");
+    const cancelToolBtn = document.getElementById("cancel-tool");
+
+    // Show popup when "Add More +" is clicked
+    addMoreBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default anchor action
+        addToolPopup.style.display = "flex";
+    });
+
+    // Save new tool
+    saveToolBtn.addEventListener("click", function () {
+        const toolName = document.getElementById("tool-name").value.trim();
+        const toolLink = document.getElementById("tool-link").value.trim();
+        const toolsContainer = document.querySelector(".tools-container");
+
+        if (toolName && toolLink) {
+            const newTool = document.createElement("div");
+            newTool.classList.add("tool");
+            newTool.innerHTML = `
+                <a href="${toolLink}" target="_blank">
+                    <img src="./Assets/image/default.png" alt="${toolName}" />
+                    <p>${toolName}</p>
+                </a>
+            `;
+
+            toolsContainer.insertBefore(newTool, toolsContainer.lastElementChild); // Add before "Add More +"
+            addToolPopup.style.display = "none"; // Close popup
+        } else {
+            alert("Please enter both a name and a link.");
+        }
+    });
+
+    // Cancel popup
+    cancelToolBtn.addEventListener("click", function () {
+        addToolPopup.style.display = "none";
     });
 });
 

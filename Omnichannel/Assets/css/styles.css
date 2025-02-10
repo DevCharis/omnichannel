@@ -58,10 +58,7 @@ header {
 
 /* Responsive header adjustments */
 @media (max-width: 768px) {
-  .logo-list {
-   
-    flex-direction:column;
-  }
+ 
 
   .logo-u,
   .logo-o {
@@ -109,7 +106,7 @@ header {
   transition: 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a, button:hover {
   color: #7f6060;
  
 }
@@ -128,26 +125,65 @@ header {
   margin: 3px 0;
 }
 
-/* Responsive Navbar */
+/* Mobile View */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: flex;
     flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 0px;
     background-color: #590303;
-    position: absolute;
-    font-size: large;
-    top: 60px;
     left: 0;
-    right: 0;
-    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    pointer-events: none; 
   }
 
   .nav-links.active {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
+
+  .nav-links li {
+    margin: 10px 0;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-links a button {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .nav-links a button:hover {
+    background: #7f6060;
+    transform: scale(1.05);
+  }
+
 
   .burger {
     display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50px;
+    margin: 3px 0;
   }
 }
 
@@ -155,6 +191,7 @@ header {
 section {
   margin: 20px;
   padding: 20px;
+  border-radius: 10px;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -197,7 +234,9 @@ footer {
   background-color: #590303;
   color: #fff;
   padding: 20px;
-position: relative;}
+position: relative;
+border-radius: 10px;
+}
 
 /* Link Styles */
 .links {
@@ -274,6 +313,12 @@ position: relative;}
   height: 80px;
   margin-bottom: 10px;
   object-fit: contain;
+}
+.tool button {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  /* object-fit: contain; */
 }
 
 .tool p {
@@ -546,7 +591,7 @@ position: relative;}
 .popup-content {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -561,7 +606,7 @@ position: relative;}
   margin: 5px;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 #confirm-logout {
@@ -572,4 +617,61 @@ position: relative;}
 #cancel-logout {
   background: gray;
   color: white;
+}
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px; /* Set width */
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.popup-content input {
+  width: 100%;
+  /* margin: 10px 10px; */
+  height: auto;
+  border-radius: 20px;
+  align-content: center;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.popup-buttons button {
+  padding: 8px 12px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-buttons button:first-child {
+  background:#333;
+  color: white;
+}
+
+.popup-buttons button:last-child {
+  background: #590303;
+}
+.popup-buttons button:hover {
+  background: #5a3838;
 }
