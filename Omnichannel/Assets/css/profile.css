@@ -26,7 +26,8 @@ header {
   text-align: center;
   background-color: #590303;
   color: white;
-  padding: 20px;
+  padding: 10px 20px;
+  max-width: 100%;
 }
 
 /* Main Content */

@@ -649,6 +649,9 @@ border-radius: 10px;
   align-content: center;
 }
 
+.popup-content h2 {
+ color: #590303;
+}
 .popup-buttons {
   display: flex;
   justify-content: space-around;
