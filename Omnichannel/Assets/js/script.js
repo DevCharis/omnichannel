@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (userOTP === storedOTP) {
                 sessionStorage.setItem("authenticated", "true");
                 sessionStorage.removeItem("otp");
-                alert("OTP verified! Redirecting...");
+                alert("OTP verified! Login Successful...");
                 window.location.href = "index.html";
             } else {
                 errorMessage.textContent = "Invalid OTP. Try again.";
@@ -57,13 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Handle logout
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", function () {
-            sessionStorage.clear(); // Clear session data
-            alert("You have been logged out.");
-            window.location.href = "login.html";
-        });
-    }
+//     if (logoutBtn) {
+//         logoutBtn.addEventListener("click", function () {
+//             sessionStorage.clear(); // Clear session data
+//             alert("You have been logged out.");
+//             window.location.href = "login.html";
+//         });
+//     }
 });
 
 // Generate a 6-digit OTP

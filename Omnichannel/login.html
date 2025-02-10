@@ -65,18 +65,18 @@
         window.location.href = "index.html"; // Redirect if already logged in
     }
 });
-document.getElementById("verifyOTP").addEventListener("click", function () {
-    let otpEntered = document.getElementById("otp").value;
-    let storedOTP = sessionStorage.getItem("otp");
+// document.getElementById("verifyOTP").addEventListener("click", function () {
+//     let otpEntered = document.getElementById("otp").value;
+//     let storedOTP = sessionStorage.getItem("otp");
 
-    if (otpEntered === storedOTP) {
-        sessionStorage.setItem("authenticated", "true"); // ✅ Correct session setting
-        alert("Login successful!");
-        window.location.href = "index.html";
-    } else {
-        alert("Invalid OTP. Try again.");
-    }
-});
+//     if (otpEntered === storedOTP) {
+//         sessionStorage.setItem("authenticated", "true"); // ✅ Correct session setting
+//         alert("Login successful!");
+//         window.location.href = "index.html";
+//     } else {
+//         alert("Invalid OTP. Try again.");
+//     }
+// });
 
     </script>
     <footer>&copy; 2024 Omnichannel Hub. All Rights Reserved.</footer>
