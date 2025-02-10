@@ -137,6 +137,8 @@ footer {
   background-color: #590303;
   display: flex;
   justify-content: space-between;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+
   /* align-items: center; */
   /* padding: 15px 20px; */
   /* position: relative; */
