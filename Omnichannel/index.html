@@ -210,6 +210,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Confirm logout
     confirmLogout.addEventListener("click", function () {
+      sessionStorage.removeItem("authenticated"); // Clear session
+      alert("Logging out...");
         // Simulate logout (replace with actual logout logic)
         window.location.href = "login.html"; // Redirect to login page
     });

@@ -6,6 +6,8 @@
     <title>Profile Update</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./Assets/css/profile.css" />
+    <script src="./Assets/js/script.js" defer>
+    </script>
   </head>
   <body>
     <header>
@@ -112,6 +114,7 @@
 
     // Confirm logout
     confirmLogout.addEventListener("click", function () {
+      sessionStorage.removeItem("authenticated"); // Clear session
         // Simulate logout (replace with actual logout logic)
         alert("Logging out...");
         window.location.href = "login.html"; // Redirect to login page

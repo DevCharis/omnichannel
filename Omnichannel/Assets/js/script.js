@@ -8,14 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let generatedOTP = sessionStorage.getItem("otp") || ""; // Retrieve OTP from session storage
 
-    // Prevent direct access to index.html
-    if (window.location.pathname.includes("index.html")) {
-        if (!sessionStorage.getItem("authenticated")) {
-            alert("Session Expired! Redirecting to login page.");
-            window.location.href = "login.html";
-        }
-    }
-
     // Handle login form submission
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
@@ -53,6 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorMessage.textContent = "Invalid OTP. Try again.";
             }
         });
+    }
+
+    // Prevent direct access to index.html
+    if (window.location.pathname.includes("index.html") || window.location.pathname.includes("profile.html")) {
+        if (!sessionStorage.getItem("authenticated")) {
+            alert("Session Expired! Redirecting to login page.");
+            window.location.href = "login.html";
+        }
     }
 });
 
