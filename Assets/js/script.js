@@ -22,13 +22,13 @@ if (document.getElementById("login-form")) {
     });
 }
 
-// // Logout should clear session
-// if (document.getElementById("logout-btn")) {
-//     document.getElementById("logout-btn").addEventListener("click", function () {
-//         sessionStorage.clear();
-//         window.location.href = "login.html";
-//     });
-// }
+// Logout should clear session
+if (document.getElementById("logout-btn")) {
+    document.getElementById("logout-btn").addEventListener("click", function () {
+        sessionStorage.clear();
+        window.location.href = "login.html";
+    });
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
