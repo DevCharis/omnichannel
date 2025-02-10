@@ -137,6 +137,15 @@
       }
     }
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!sessionStorage.getItem("authenticated")) {
+            alert("Session Expired! Redirecting to login.");
+            window.location.href = "login.html";
+        }
+    });
+</script>
+
 </body>
 
 </html>
