@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Prevent direct access to index.html
     if (window.location.pathname.includes("index.html")) {
         if (!sessionStorage.getItem("authenticated")) {
-            alert("Unauthorized access! Redirecting to login page.");
+            alert("Session Expired! Redirecting to login page.");
             window.location.href = "login.html";
         }
     }
