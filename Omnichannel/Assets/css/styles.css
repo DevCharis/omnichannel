@@ -386,7 +386,7 @@ border-radius: 10px;
   margin: 50px auto;
   padding: 20px;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: center;
 }
@@ -400,9 +400,12 @@ border-radius: 10px;
   width: 100%;
   padding: 10px;
   margin: 10px 0;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
+
 
 .toggle-password {
   position: absolute;
@@ -416,6 +419,7 @@ border-radius: 10px;
 
 .login-btn {
   width: 100%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   background: #590303;
   color: white;
@@ -457,7 +461,7 @@ border-radius: 10px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     margin: 20px auto;
     text-align: center;
@@ -465,8 +469,7 @@ border-radius: 10px;
   
   /* OTP Input Field */
   #otp-section input {
-    padding: 10px;
-    width: 80%;
+    width: 50%;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -505,12 +508,13 @@ border-radius: 10px;
   /* Responsive OTP Section */
   @media (max-width: 768px) {
     #otp-section {
-      width: 90%; /* Allow the OTP section to use more width on smaller screens */
+      width: 80%; /* Allow the OTP section to use more width on smaller screens */
       padding: 15px;
+      
     }
   
     #otp-section input {
-      width: 100%;
+      width: 80%;
     }
   
     #verifyOTP {
