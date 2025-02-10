@@ -47,13 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Prevent direct access to index.html
-    if (window.location.pathname.includes("index.html") || window.location.pathname.includes("profile.html")) {
-        if (!sessionStorage.getItem("authenticated")) {
-            alert("Session Expired! Redirecting to login page.");
-            window.location.href = "login.html";
-        }
-    }
+
 });
 
 // Generate a 6-digit OTP and store it in session storage

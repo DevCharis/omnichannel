@@ -1,130 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile Update</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/css/profile.css" />
-    <script src="./Assets/js/script.js" defer>
-    </script>
-  </head>
-  <body>
-    <header>
-         <div class="logo-list">
-        <img class="logo-u" src="./Assets/image/uba.png" alt="UBA Logo" />
-        <h1>Omnichannel Hub</h1>
-        <img class="logo-o" src="./Assets/image/omnichannel.png" alt="Omnichannel Logo" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Update</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="./Assets/css/profile.css" />
+  <script src="./Assets/js/script.js" defer>
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="logo-list">
+      <img class="logo-u" src="./Assets/image/uba.png" alt="UBA Logo" />
+      <h1>Omnichannel Hub</h1>
+      <img class="logo-o" src="./Assets/image/omnichannel.png" alt="Omnichannel Logo" />
+    </div>
+    <h3>Profile Details</h3>
+    <button class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </button>
+  </header>
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html"><button><i class="fas fa-home"></i> Home</button></a></li>
+      <li><a href="profile.html"><button><i class="fas fa-user"></i> Profile</button></a></li>
+      <li><a><button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button></a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="profile-container">
+      <div class="profile-picture">
+        <label for="profile-pic">
+          <img id="preview-pic" src="./Assets/image/uba.png" alt="Profile Picture" class="profile-img">
+          <input type="file" id="profile-pic" name="profile-pic" accept="image/*" class="file-input"
+            onchange="previewImage(event)">
+          <div> <span>Change Profile Picture</span>
+        </label>
       </div>
-      <h3>Profile Details</h3>
-      <button class="burger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </button>
-    </header>
-
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="index.html"><button><i class="fas fa-home"></i> Home</button></a></li>
-        <li><a href="profile.html"><button><i class="fas fa-user"></i> Profile</button></a></li>
-        <li><a><button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button></a></li>
-      </ul>
-   </nav>   
-
-    <main>
-      <section class="profile-container">
-        <div class="profile-picture">
-            <label for="profile-pic">
-              <img id="preview-pic" src="./Assets/image/uba.png" alt="Profile Picture" class="profile-img">
-              <input type="file" id="profile-pic" name="profile-pic" accept="image/*" class="file-input" onchange="previewImage(event)">
-            <div> <span>Change Profile Picture</span>
-            </label>
-          </div>
-  </div>
-        <!-- Personal Details Section (Text instead of input fields) -->
-        <div class="personal-details">
-          <label>Name</label>
-          <p>Chizi-Leka Joshua Favour</p>
-          <!-- Example Text -->
-
-          <label>Email</label>
-          <p>chizi-leka.joshua@ubagroup.com</p>
-          <!-- Example Text -->
-
-          <label>Phone Number</label>
-          <p>+1234567890</p>
-          <!-- Example Text -->
-
-          <label>Department</label>
-          <p>Assurance/Audit</p>
-          <!-- Example Text -->
-
-          <label>Job Role</label>
-          <p>Regional Control Officer</p>
-          <!-- Example Text -->
-          <label>Current Location</label>
-          <p>0401</p>
-          <!-- Example Text -->
-
-          <label>Current Supervisor</label>
-          <p>Aaron Kofi</p>
-          <!-- Example Text -->
-
-          <label>Current Address</label>
-          <p>123, ABC Street, DEF, XYZ State</p>
-          <!-- Example Text -->
-        </div>
-
-        <!-- No Update Button Here, Only for Viewing -->
-      </section>
-    </main>
-    <div id="logout-popup" class="popup-overlay">
-      <div class="popup-content">
-          <h3>Are you sure you want to logout?</h3>
-          <div class="popup-buttons">
-              <button id="confirm-logout">Yes</button>
-              <button id="cancel-logout">No</button>
-          </div>
       </div>
+      <!-- Personal Details Section (Text instead of input fields) -->
+      <div class="personal-details">
+        <label>Name</label>
+        <p>Chizi-Leka Joshua Favour</p>
+        <!-- Example Text -->
+
+        <label>Email</label>
+        <p>chizi-leka.joshua@ubagroup.com</p>
+        <!-- Example Text -->
+
+        <label>Phone Number</label>
+        <p>+1234567890</p>
+        <!-- Example Text -->
+
+        <label>Department</label>
+        <p>Assurance/Audit</p>
+        <!-- Example Text -->
+
+        <label>Job Role</label>
+        <p>Regional Control Officer</p>
+        <!-- Example Text -->
+        <label>Current Location</label>
+        <p>0401</p>
+        <!-- Example Text -->
+
+        <label>Current Supervisor</label>
+        <p>Aaron Kofi</p>
+        <!-- Example Text -->
+
+        <label>Current Address</label>
+        <p>123, ABC Street, DEF, XYZ State</p>
+        <!-- Example Text -->
+      </div>
+
+      <!-- No Update Button Here, Only for Viewing -->
+    </section>
+  </main>
+  <div id="logout-popup" class="popup-overlay">
+    <div class="popup-content">
+      <h3>Are you sure you want to logout?</h3>
+      <div class="popup-buttons">
+        <button id="confirm-logout">Yes</button>
+        <button id="cancel-logout">No</button>
+      </div>
+    </div>
   </div>
-  
 
-    <footer>&copy; 2024 Omnichannel Hub. All Rights Reserved.</footer>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const burger = document.querySelector(".burger");
-        const navLinks = document.querySelector(".nav-links");
-        
-        burger.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-        });
+  <footer>&copy; 2024 Omnichannel Hub. All Rights Reserved.</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const burger = document.querySelector(".burger");
+      const navLinks = document.querySelector(".nav-links");
+
+      burger.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
       });
-      document.addEventListener("DOMContentLoaded", function () {
-    const logoutBtn = document.getElementById("logout-btn");
-    const logoutPopup = document.getElementById("logout-popup");
-    const confirmLogout = document.getElementById("confirm-logout");
-    const cancelLogout = document.getElementById("cancel-logout");
-
-    // Show popup when logout button is clicked
-    logoutBtn.addEventListener("click", function () {
-        logoutPopup.style.display = "flex";
     });
+    document.addEventListener("DOMContentLoaded", function () {
+      const logoutBtn = document.getElementById("logout-btn");
+      const logoutPopup = document.getElementById("logout-popup");
+      const confirmLogout = document.getElementById("confirm-logout");
+      const cancelLogout = document.getElementById("cancel-logout");
 
-    // Confirm logout
-    confirmLogout.addEventListener("click", function () {
-      sessionStorage.removeItem("authenticated"); // Clear session
+      // Show popup when logout button is clicked
+      logoutBtn.addEventListener("click", function () {
+        logoutPopup.style.display = "flex";
+      });
+
+      // Confirm logout
+      confirmLogout.addEventListener("click", function () {
+        sessionStorage.removeItem("authenticated"); // Clear session
         // Simulate logout (replace with actual logout logic)
         alert("Logging out...");
         window.location.href = "login.html"; // Redirect to login page
+      });
+
+      // Cancel logout
+      cancelLogout.addEventListener("click", function () {
+        logoutPopup.style.display = "none";
+      });
     });
 
-    // Cancel logout
-    cancelLogout.addEventListener("click", function () {
-        logoutPopup.style.display = "none";
-    });
-});
-    </script>
-  </body>
+    // Prevent direct access to profile.html
+    if (window.location.pathname.includes("profile.html")) {
+      if (!sessionStorage.getItem("authenticated")) {
+        alert("Session Expired! Redirecting to login page.");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+
 </html>

@@ -263,12 +263,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (!sessionStorage.getItem("authenticated")) {
-        alert("Unauthorized access! Redirecting to login page.");
-        window.location.href = "login.html"; // Redirect to login page
+if (window.location.pathname.includes("index.html")) {
+      if (!sessionStorage.getItem("authenticated")) {
+        alert("Session Expired! Redirecting to login page.");
+        window.location.href = "login.html";
+      }
     }
-});
+
 
     </script>
     <footer>&copy; 2024 Omnichannel Hub. All Rights Reserved.</footer>
