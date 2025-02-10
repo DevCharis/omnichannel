@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./Assets/css/styles.css" />
+    <script src="./Assets/js/script.js" defer></script>
+    <script
+      src="https://statics.teams.cdn.office.net/sdk/v1.10.0/js/MicrosoftTeams.min.js"
+      defer
+    ></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <title>Omnichannel Hub</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo-list">
+        <img class="logo-u" src="./Assets/image/uba.png" alt="UBA Logo" />
+        <h1>Omnichannel Hub</h1>
+        <img
+          class="logo-o"
+          src="./Assets/image/omnichannel.png"
+          alt="Omnichannel Logo"
+        />
+      </div>
+      <p>"Streamlining Operations for Seamless Connectivity"</p>
+      <button class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </button>
+    </header>
+
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html"><button><i class="fas fa-home"></i> Home</button></a></li>
+        <li><a href="profile.html"><button><i class="fas fa-user"></i> Profile</button></a></li>
+        <li><a><button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button></a></li>
+      </ul>
+   </nav>
+   
+    <main>
+      <section>
+        <iframe
+          src="https://teams.microsoft.com"
+          width="100%"
+          height="100%"
+          frameborder="0"
+        ></iframe>
+        <div></div>
+          <a
+            href="https://teams.microsoft.com/l/meetup-join/your-meeting-id"
+            target="_blank"
+            class="teams-button"
+          >
+            Join Microsoft Teams Meeting
+          </a>
+        </div>
+      </section>
+      <section id="tools">
+        <h2>Control Department Tools</h2>
+        <div class="tools-container">
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/UBA Intranet.png" alt="UBA Intranet" />
+              <p>UBA Intranet</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/HIKVision.png" alt="HIKVision" />
+              <p>HIKVision</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/uba.png" alt="iSuite" />
+              <p>iSuite</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/Finacle.png" alt="Finacle" />
+              <p>Finacle</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/omnichannel.png" alt="ICEM" />
+              <p>ICEM</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/GRP.png" alt="GRP" />
+              <p>GRP</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/CRP.png" alt="CRP" />
+              <p>CRP</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/uba.png" alt="BVN Validation Portal" />
+              <p>Mail</p>
+            </a>
+          </div>
+          
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <img src="./Assets/image/uba.png" alt="BVN Validation Portal" />
+              <p>BVN VP</p>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="http://bvnapp.ubagroup.com/" target="_blank">
+              <button class="fas fa-square-plus" alt="BVN Validation Portal" ></button>
+              <p>Add More +</p>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div id="calendar"></div>
+      </section>
+    </main>
+    <div id="logout-popup" class="popup-overlay">
+      <div class="popup-content">
+          <h3>Are you sure you want to logout?</h3>
+          <div class="popup-buttons">
+              <button id="confirm-logout">Yes</button>
+              <button id="cancel-logout">No</button>
+          </div>
+      </div>
+  </div>
+  <div id="add-tool-popup" class="popup-overlay">
+    <div class="popup-content">
+        <h2>Add a New Tool</h2>
+        <input type="text" id="tool-name" placeholder="Tool Name" required />
+        <input type="url" id="tool-link" placeholder="Tool Link" required />
+        <div class="popup-buttons">
+            <button id="save-tool">Save</button>
+            <button id="cancel-tool">Cancel</button>
+        </div>
+    </div>
+</div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const burger = document.querySelector(".burger");
+        const navLinks = document.querySelector(".nav-links");
+
+        burger.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        microsoftTeams.initialize();
+
+        microsoftTeams.getContext((context) => {
+          console.log("Running inside Teams:", context);
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+    var calendarEl = document.getElementById("calendar");
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: "dayGridMonth",
+        selectable: true,
+        editable: true,
+        events: [
+            {
+                title: "Meeting with Team",
+                start: "2025-02-10T14:00:00",
+                end: "2025-02-10T15:00:00",
+                description: "Discuss project updates",
+            },
+        ],
+        dateClick: function (info) {
+            let eventTitle = prompt("Enter Event Title:");
+            if (eventTitle) {
+                calendar.addEvent({
+                    title: eventTitle,
+                    start: info.dateStr,
+                    allDay: true,
+                });
+                alert("Event Added! Reminder set.");
+            }
+        },
+    });
+
+    calendar.render();
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const logoutBtn = document.getElementById("logout-btn");
+    const logoutPopup = document.getElementById("logout-popup");
+    const confirmLogout = document.getElementById("confirm-logout");
+    const cancelLogout = document.getElementById("cancel-logout");
+
+    // Show popup when logout button is clicked
+    logoutBtn.addEventListener("click", function () {
+        logoutPopup.style.display = "flex";
+    });
+
+    // Confirm logout
+    confirmLogout.addEventListener("click", function () {
+      sessionStorage.removeItem("authenticated"); // Clear session
+      alert("Logging out...");
+        // Simulate logout (replace with actual logout logic)
+        window.location.href = "login.html"; // Redirect to login page
+    });
+
+    // Cancel logout
+    cancelLogout.addEventListener("click", function () {
+        logoutPopup.style.display = "none";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const addMoreBtn = document.querySelector(".tool a button");
+    const addToolPopup = document.getElementById("add-tool-popup");
+    const saveToolBtn = document.getElementById("save-tool");
+    const cancelToolBtn = document.getElementById("cancel-tool");
+
+    // Show popup when "Add More +" is clicked
+    addMoreBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default anchor action
+        addToolPopup.style.display = "flex";
+    });
+
+    // Save new tool
+    saveToolBtn.addEventListener("click", function () {
+        const toolName = document.getElementById("tool-name").value.trim();
+        const toolLink = document.getElementById("tool-link").value.trim();
+        const toolsContainer = document.querySelector(".tools-container");
+
+        if (toolName && toolLink) {
+            const newTool = document.createElement("div");
+            newTool.classList.add("tool");
+            newTool.innerHTML = `
+                <a href="${toolLink}" target="_blank">
+                    <img src="./Assets/image/default.png" alt="${toolName}" />
+                    <p>${toolName}</p>
+                </a>
+            `;
+
+            toolsContainer.insertBefore(newTool, toolsContainer.lastElementChild); // Add before "Add More +"
+            addToolPopup.style.display = "none"; // Close popup
+        } else {
+            alert("Please enter both a name and a link.");
+        }
+    });
+
+    // Cancel popup
+    cancelToolBtn.addEventListener("click", function () {
+        addToolPopup.style.display = "none";
+    });
+});
+
+if (window.location.pathname.includes("index.html")) {
+      if (!sessionStorage.getItem("authenticated")) {
+        alert("Session Expired! Redirecting to login page.");
+        window.location.href = "login.html";
+      }
+    }
+
+
+    </script>
+    <footer>&copy; 2024 Omnichannel Hub. All Rights Reserved.</footer>
+  </body>
+</html>
