@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+    if (sessionStorage.getItem("authenticated") === "true") {
+        window.location.href = "index.html"; // Redirect if already logged in
+    } else {
+        sessionStorage.removeItem("otp"); // Clear old OTP
+        sessionStorage.removeItem("authenticated"); // Ensure fresh login
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");
     const otpSection = document.getElementById("otp-section");
     const errorMessage = document.getElementById("error-message");
